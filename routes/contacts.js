@@ -3,7 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/indexController');
 
 router.post('/insert', indexController.insert)
-router.get('/getAll', indexController.getAll)
-router.get('/getId/:id', indexController.getById);
+router.get('/contacts', indexController.getAll)
+router.get('/contacts/:id', indexController.getById);
 
 module.exports = router;
