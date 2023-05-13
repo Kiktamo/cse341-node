@@ -90,7 +90,11 @@ const updateById = async (req, res) => {
 
   const updateValues = {};
   fieldsToUpdate.forEach(field => {
-    updateValues[field] = req.body[field];
+    if (field === 'birthday') {
+      updateValues[field] = new Date(req.body[field]);
+    } else {
+      updateValues[field] = req.body[field];
+    }
   });
 
   const result = await collection.updateOne({
