@@ -60,7 +60,7 @@ const insert = async (req, res) => {
     console.log(err);
     res.status(500).send('Error inserting document');
   } else {
-    res.status(201).send('Document inserted. ID = ' + result.insertedId);
+    res.status(201).json(res);
   }
 };
 
