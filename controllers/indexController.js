@@ -108,7 +108,7 @@ const updateById = async (req, res) => {
     console.log(err);
     res.status(500).send('Error updating document');
   } else {
-    res.status(204).send('Document Updated');
+    res.status(204).send();
   }
 };
 
