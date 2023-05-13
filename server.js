@@ -3,13 +3,12 @@ const app = express();
 const config = require('./config');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
-const contactRouter = require('./routes/contacts');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
 
 // app.use('/', indexRouter);
 app.use(bodyParser.json());
-app.use('/', contactRouter)
+app.use('/', indexRouter)
 
 const port = config.port;
 
