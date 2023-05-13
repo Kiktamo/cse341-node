@@ -6,15 +6,15 @@ const indexRouter = require('./routes/index');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
 
-// app.use('/', indexRouter);
-app.use(bodyParser.json());
-app.use('/', indexRouter)
+app.use(bodyParser.json())
+.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+})
+.use('/', indexRouter);
 
 const port = config.port;
 
-// app.listen(port, () => {
-//   console.log(`Web Server is listening at port ${port}`);
-// });
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
