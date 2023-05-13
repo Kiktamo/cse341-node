@@ -1,3 +1,4 @@
+const { response } = require('express');
 const mongodb = require('../db/connect');
 const mongo = require('mongodb')
 
@@ -60,7 +61,7 @@ const insert = async (req, res) => {
     console.log(err);
     res.status(500).send('Error inserting document');
   } else {
-    res.status(201).json(res);
+    res.status(201).json(result);
   }
 };
 
